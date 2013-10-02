@@ -13,22 +13,39 @@ int r2 = 12;
 int r3 = 13;
 float w = .5;
 int t = 2;
-
+int which = 0;
 void setup() {
   for(int x = 2; x <= 13; x++){
     pinMode(x, OUTPUT);
   }
-
+ randomSeed(analogRead(0));
 }
 
 
 void loop() {
-  single_run_1_27(100 * w, 1 * t);
-  vertical_run_1_27(100 * w, 1 * t);
-  rows_horizontal(50 * w, 1 * t);
-  rows_horizontal_2(50 * w, 1 * t);
-  layers_vertical(25 * w, 2 * t);
-  layers_horizontal(25 * w, 2 * t);
+  which = random(1, 7);
+  
+  switch(which){
+  case 1:
+    single_run_1_27(100 * w, 1 * t);
+    break;
+  case 2:
+    vertical_run_1_27(100 * w, 1 * t);  
+    break;
+  case 3:
+    rows_horizontal(50 * w, 1 * t);
+    break;
+  case 4:
+    rows_horizontal_2(50 * w, 1 * t);
+    break;
+  case 5:
+    layers_vertical(25 * w, 2 * t);
+    break;
+  case 6:
+    layers_horizontal(25 * w, 2 * t);
+    break;
+  }
+  
 }
 
 
